@@ -45,15 +45,25 @@
   transition: transform 250ms ease-in-out;
 }
 
+.gallery-image:focus,
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 .feedback-form {
   flex-direction: column;
-  width: 40%;
+  justify-content: center;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 360px;
 }
 
 .feedback-form label {
-  margin-bottom: 10px;
+  text-align: start;
   font-size: 16px;
-  color: #333;
+  color: #2e2f42;
 }
 
 .feedback-form input,
@@ -61,7 +71,7 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #808080;
   border-radius: 8px;
   font-size: 16px;
   transition: border 0.3s ease;
@@ -69,7 +79,7 @@
 
 .feedback-form input:focus,
 .feedback-form textarea:focus {
-  border-color: #2575fc;
+  border-color: #000000;
   outline: none;
 }
 
@@ -78,16 +88,18 @@
 }
 
 .feedback-form button {
-  background-color: #2575fc;
+  background-color: #4e75ff;
+  align-items: start;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   font-size: 16px;
+  width: 95px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .feedback-form button:hover {
-  background-color: #6a11cb;
+  background-color: #6c8cff;
 }

@@ -72,32 +72,17 @@ const gallery = document.querySelector('.gallery');
 const markup = images
   .map(
     ({ preview, original, description }) => `
-  <li class="gallery-item"><a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-  </li>
-  `
+      <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+          <img class="gallery-image" src="${preview}" alt="${description}" />
+        </a>
+      </li>
+    `
   )
   .join('');
 gallery.innerHTML = markup;
 
-gallery.addEventListener('click', event => {
-  event.preventDefault();
-
-  const isImg = event.target.classList.contains('gallery-image');
-  if (!isImg) return;
-
-  const largeImgSrc = event.target.dataset.source;
-  const description = event.target.alt;
-
-  const instance = basicLightbox.create(
-    `<img src = "${largeImgSrc}" alt="${description}" width="800" height="600">`
-  );
-
-  instance.show();
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
 });
